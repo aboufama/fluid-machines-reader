@@ -1,0 +1,66 @@
+// Display-only updates to editorial placeholders after the source images were restored.
+// The verified transcription and its stable block indices remain unchanged on disk.
+const updates = {
+  "22:2": "",
+  "30:3": "",
+  "36:3": "",
+  "38:2": "",
+  "46:4": "",
+  "47:3": "",
+  "132:4": "",
+  "137:7": "",
+  "138:6": "",
+  "139:9": "",
+  "140:11": "",
+  "142:7": "",
+  "147:4": "",
+  "151:3": "",
+  "152:2": "",
+  "169:1": "",
+  "233:8": "",
+  "233:10": "",
+  "234:2": "",
+  "234:5": "",
+  "234:8": "",
+  "235:2": "",
+  "235:5": "",
+  "247:6": "",
+  "339:6": "",
+  "344:10": "",
+  "345:2": "",
+  "345:6": "",
+  "366:1": "",
+  "367:2": "",
+  "385:2": "",
+  "385:4": "",
+  "386:2": "",
+  "515:3": "",
+  "517:9": "",
+  "76:6": "Editorial redraw note: The source photograph is unavailable; a redrawn schematic is shown.",
+  "139:10": "Editorial redraw note: Small numeric shaft markings are too faint to reproduce confidently; unlabeled schematic tick marks retain the scale’s function.",
+  "143:14": "Editorial redraw note: Small numeric shaft markings are too faint to reproduce confidently; unlabeled schematic tick marks retain the scale’s function.",
+  "199:4": "Editorial redraw note: The left sketch’s downstream boundary is erased. Its qualitative contraction is reconstructed from the adjacent source photograph and the stated falling-jet problem; no numerical boundary data are inferred.",
+  "233:13": "Editorial redraw note: The heart is shown as a functional chamber-and-valve schematic, not an anatomical tracing. The diaphragm-pump cam, lever and diaphragm are redrawn; the center pump photograph is unavailable.",
+  "234:9": "Editorial redraw note: The pump is a functional schematic preserving the source mechanism; source photographs are unavailable.",
+  "355:6": "Editorial redraw note: The original is the same schematic repeated as Figure 9.33 on PDF page 360; the shared custom SVG preserves the clockwise left-tip wrap and counterclockwise right-tip vortex.",
+  "360:3": "The original photograph and a redrawn pressure and vortex schematic are available.",
+  "360:4": "Editorial redraw note: Meaningful schematic labels and source photograph identification retained. The custom vector graphic illustrates the pressure-driven vortex directions.",
+  "389:12": "Transcription note: The equals sign in (10.21) and portions of its left-hand factors are washed out. They are restored from the clear parallel expression (10.23) and the stated x-momentum equation.",
+  "555:4": "My experience is that fluids textbooks are full of words and phrases that are not explained; this is the language that fluids professors speak, but perhaps not the language that fluids students speak at the beginning of the term. I think I help you if I provide these definitions, and I do not think that providing these definitions and expecting you to know them means I am requiring “memorization”. I think I am teaching you the language of fluid mechanics.",
+  "555:15": "Editorial clarification: The partial time derivative is the local acceleration. The acceleration of a fluid particle expressed in Eulerian variables is the material derivative \\(D\\vec u/Dt=\\partial_t\\vec u+(\\vec u\\cdot\\nabla)\\vec u\\); “Eulerian acceleration” should not imply the convective contribution disappears.",
+  "102:14": "Figure 3.14: weather.com snapshot. Should be a nice day!",
+  "112:1": "Figure 3.21: The Oris Aquis depth gauge, shown (left) at depth 0 m and (right) at depth 5 m.",
+  "116:6": "Figure 3.28: The Oris Aquis depth gauge, shown (left) at depth 0 m and (right) at depth 5 m.",
+  "295:2": "Figure 8.7: Streamlines for an experiment meant to simulate potential flow streamlines over an inclined plate. Photo by D.H. Peregrine.",
+  "303:0": "Figure 8.12: #tbt Planar laser-induced fluorescence image of a vortex ring caused by impulsive release of a jet of carbon monoxide into air. From Chapter 2 of my Ph.D. dissertation.",
+  "303:1": "Figure 8.13: A Poiseuille flow visualized by repeatedly releasing hydrogen bubbles into a flow of water by applying a voltage to a wire and generating electrolysis.",
+  "304:0": "Figure 8.14: A Poiseuille flow visualized by converting a nonfluorescent chemical species to a fluorescent one by focusing a laser along a line perpendicular to a flow of water by applying a voltage to a wire and generating electrolysis. Photo by Mike Garguilo.",
+  "305:0": "Figure 8.15: Schlieren image of a sphere traveling supersonically. The curve in front of the sphere is the bow shock, visible because it corresponds to a huge density gradient that bends light and prevents it from getting to the camera. Photo by A.C. Charters."
+};
+
+export function applyImageRestorations(pages) {
+  return pages.map(page => ({...page, blocks:page.blocks.map((block,index) => {
+    const key = `${page.page}:${index}`;
+    return Object.hasOwn(updates,key) ? {...block,text:updates[key]} : block;
+  })}));
+}

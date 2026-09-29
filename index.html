@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>How Fluid Machines Work — Study reader</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='3' width='28' height='26' rx='2' fill='%23fff' stroke='%2336c' stroke-width='2'/%3E%3Cpath d='M16 5v22M6 10h6M6 15h6M20 10h6M20 15h6M6 20h6M20 20h6' stroke='%2336c' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="reading-navigation.css">
+  <link rel="stylesheet" href="study-browser.css">
+  <link rel="stylesheet" href="reader-layout.css">
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
+</head>
+<body>
+  <a class="skip" href="#reader">Skip to reader</a>
+  <header class="masthead">
+    <button id="contentsToggle" class="icon-button mobile-only" aria-label="Show contents" aria-expanded="false" aria-controls="sidebar">☰</button>
+    <a class="brand" href="#page=13" aria-label="Fluid mechanics reader home"><span class="brand-mark" aria-hidden="true">F</span><span><strong>Fluid mechanics</strong><small>Study reader</small></span></a>
+    <form class="search-form" id="searchForm" role="search"><label class="sr-only" for="searchInput">Search this book</label><input id="searchInput" type="search" placeholder="Search this book" autocomplete="off"><button type="submit">Search</button></form>
+    <span class="privacy">2022 edition</span>
+  </header>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label="Book contents">
+      <div class="contents-heading"><h2>Contents</h2><button id="closeContents" class="mobile-only icon-button" aria-label="Close contents">×</button></div>
+      <nav class="study-shortcuts" aria-label="Study tools"><a href="#browse=equations">Equations</a><a href="#browse=problems">Problems</a><a href="#browse=figures">Figures</a></nav>
+      <div id="readingProgress"></div>
+      <nav id="chapterNav"></nav>
+      <div class="sidebar-bottom">© Brian J. Kirby<br>2022 edition · 596 PDF pages</div>
+    </aside>
+    <button class="sidebar-shade" id="sidebarShade" aria-label="Close contents" hidden></button>
+    <main id="reader" tabindex="-1">
+      <div class="article-heading"><h1>How Fluid Machines Work</h1><span>Brian J. Kirby · 2022 edition</span></div>
+      <div class="article-tabs"><a id="textTab" class="active-tab" href="#page=13">Read</a><a id="contentsTab" href="#contents">Contents</a><a id="studyTab" href="#browse=equations">Study index</a></div>
+      <div class="section-heading"><div><span id="sectionLabel" class="section-label">Chapter 1</span><h2 id="sectionTitle">Rocket Nozzles</h2></div><span id="printedPage" class="printed-page"></span></div>
+      <div class="toolbar" aria-label="Reader controls">
+        <div class="page-navigation"><button id="previous" class="icon-button" aria-label="Previous chapter" title="Previous chapter">‹</button><form id="pageForm"><label for="pageInput">PDF page</label><input id="pageInput" type="number" min="1" max="596" value="13" inputmode="numeric"><span>/ 596</span><button type="submit" class="quiet-button">Go</button></form><button id="next" class="icon-button" aria-label="Next chapter" title="Next chapter">›</button></div>
+        <div class="zoom-controls"><button id="marginToggle" class="quiet-button margin-toggle" aria-expanded="false" aria-controls="marginSidebar">Margin notes</button><button id="zoomOut" class="icon-button" aria-label="Smaller text">−</button><output id="zoomLabel" aria-label="Text size">16 px</output><button id="zoomIn" class="icon-button" aria-label="Larger text">+</button><button id="fitWidth" class="quiet-button">Reset</button></div>
+      </div>
+      <div id="sectionProgress"></div>
+      <p class="transcription-note"><span id="reviewProgress">Page-by-page review in progress.</span> <a href="review.html" id="reviewLink">Review record</a></p>
+      <article id="chapterText" class="chapter-text" tabindex="-1" aria-label="Book transcription"><p class="text-loading" role="status">Opening text…</p></article>
+      <div id="studyView" hidden></div>
+      <footer class="reader-footer"><span id="pageStatus" aria-live="polite"></span><a href="How-Fluid-Machines-Work-OCR.txt" download>Download plain text</a><a href="#reader" id="backToTop">Back to top</a></footer>
+    </main>
+    <aside id="marginSidebar" class="margin-sidebar" aria-label="Page margin notes">
+      <div class="margin-heading"><div><h2>In the margin</h2><span id="marginPage"></span></div><button id="closeMargins" class="icon-button" aria-label="Close margin notes">×</button></div>
+      <div id="marginContent"></div>
+    </aside>
+    <button id="marginShade" class="sidebar-shade margin-shade" aria-label="Close margin notes" hidden></button>
+  </div>
+  <dialog id="searchDialog" aria-labelledby="searchTitle"><div class="dialog-heading"><h2 id="searchTitle">Search results</h2><button id="closeSearch" class="icon-button" aria-label="Close search results">×</button></div><p id="searchStatus" aria-live="polite"></p><div id="searchResults"></div><button id="moreResults" class="more-results" hidden>Show more results</button></dialog>
+  <noscript>This reader needs JavaScript. <a href="How-Fluid-Machines-Work-OCR.txt">Open the plain text.</a></noscript>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
